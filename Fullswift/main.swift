@@ -8,3 +8,5 @@
 import Foundation
 
 print("Hello, World!");
+var name: String = "Hello";
+print(name);
