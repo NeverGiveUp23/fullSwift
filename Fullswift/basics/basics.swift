@@ -147,6 +147,21 @@ print("status message is \(httpStatus.statuseMessage)");
 // *** Tuples are useful for simple groups of related values. They’re not suited to the creation of complex data structures. ***
 // *** if your data structure is more complex, model it as a class or structure rather than a tuple. ***
 
+// OPTIONALS
+// optionals in situations where a value may or may not be present based on that type
+let possibleNumber = "123";
+let convertNumber = Int(possibleNumber);
+// becomes an optional Int -> rather than an Int due to the initializer in the code possibly failing
+
+// to write an optional type, you write a question mark (?) after the name of the type that the optional contains.
+// for example the optional for type Int is Int?. either some Int value or not value at all. it cant contains anything else like Bool or String
+
+var serviceCodeResponse: Int? = 404;
+// contains the actual Int value of 404
+
+// if you define an optional w/o providing a default value, the variable is automatically set to 'nil'
+var surveyAnswer: String?;
+// set to nil
 
 
 
