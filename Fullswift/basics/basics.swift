@@ -99,7 +99,24 @@ typealias AudioSample = Int16;
 var maxAmpFound = AudioSample.min; // -> now 0
 // Audio sample is defined as an alias for UInt16. Becuase its an alias, the call to AudioSample.min actually call for UInt16.min under the hood.
 
+//Booleans -> swift has basic boolean types called 'Bool' -> referred to as logical
+let orangeSoda = true; // inferred as Bool
+let beer = false; // inferred as Bool
+var juice: Bool; // annotated as Bool
 
+// Bool's are useful in condtional statements
+if orangeSoda {
+    print("This is so good")
+} else {
+    print("Yea, no its not here")
+}
+// since it is set to true -> it prints the first statement
+
+// TUPLES -> groups multiple values into a single compound value. The values in a tuple could be of any type and dont have to be of the same type as each other.
+let http404Error = (404, "Not Found");
+// in this example is a tuple that decribes http status codes.
+// the Tuple groups together an 'Int' and 'String' to give that status code two seperate values: a number and a human readable description.
+// it can be described as 'a tuple of type (Int, String)".
 
 
 
