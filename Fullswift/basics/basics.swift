@@ -118,5 +118,35 @@ let http404Error = (404, "Not Found");
 // the Tuple groups together an 'Int' and 'String' to give that status code two seperate values: a number and a human readable description.
 // it can be described as 'a tuple of type (Int, String)".
 
+// you can decompose a tuples contents into seperate constants or variables and access like normal
+let (statusCode, statusMessage) = http404Error;
+print("The status code is\(statusCode)");
+// "the status code is 404"
+print("The status message is\(statusMessage)");
+// "the status message is Not Found"
+
+// if you only need some of the tuples values, ignore the parts with an underscore(_) when you decompose a tuple
+let (justTheStatusCode, _) = http404Error;
+print("Just the status code\(justTheStatusCode)");
+
+// you can access individula elements in a tuple using index numbers starting from 0
+print("status code \(http404Error.0)");
+// "the status code is 404"
+print("status code \(http404Error.1)");
+// "the status message is Not Found"
+
+// you can name individual elements in a tuple whent he tuple is defined
+let httpStatus = (statuseCode: 200, statuseMessage: "OK");
+
+// you can call it by its name now
+print("status code is \(httpStatus.statuseCode)");
+print("status message is \(httpStatus.statuseMessage)");
+
+
+// tuples are useful as the return value of functions. A function that tries to retrieve a webpage might return (Int, String) tuple type to describe the success or failure of the retrieval
+// *** Tuples are useful for simple groups of related values. They’re not suited to the creation of complex data structures. ***
+// *** if your data structure is more complex, model it as a class or structure rather than a tuple. ***
+
+
 
 
