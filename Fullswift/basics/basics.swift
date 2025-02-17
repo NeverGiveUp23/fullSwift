@@ -127,6 +127,7 @@ print("The status message is\(statusMessage)");
 
 // if you only need some of the tuples values, ignore the parts with an underscore(_) when you decompose a tuple
 let (justTheStatusCode, _) = http404Error;
+     
 print("Just the status code\(justTheStatusCode)");
 
 // you can access individula elements in a tuple using index numbers starting from 0
@@ -135,7 +136,9 @@ print("status code \(http404Error.0)");
 print("status code \(http404Error.1)");
 // "the status message is Not Found"
 
-// you can name individual elements in a tuple whent he tuple is defined
+// you can name individual elements in a tuple whent he tuple i
+
+
 let httpStatus = (statuseCode: 200, statuseMessage: "OK");
 
 // you can call it by its name now
@@ -163,5 +166,72 @@ var serviceCodeResponse: Int? = 404;
 var surveyAnswer: String?;
 // set to nil
 
+// if you try to assign 'nil' to a non-optional value, you'll get a compile error
 
+//OPTIONAL BINDING
+// you use optional binding to find out whether an optional contains a value, and if so, to make that value available as a temporary constant or variable.
+// you write it like so -> if let <#constantname#> = <#someOptional#> {<#statement#>}
+
+if let actualNumber = Int(possibleNumber){
+    print("The string \(possibleNumber) has an actual integer value of \(actualNumber)")
+} else {
+    print("\(possibleNumber) could not be converted");
+}
+
+// if the optional Int returned by Int(possibleNumber) contains a value, set a new constant called actualNumber to the value contained in the oprional
+// if successful, the actualNumber constant becomes available for use within the first branch
+
+// i you don't need to refer to the original, optional constant or variable after accessin the value it contains, you can use the same name for the new contant or variable
+
+let myNumber = Int(possibleNumber);
+// here myNumber is a optional integer
+if let myNumber = myNumber {
+    // here, myNumber is a non optional integer
+    print("\(myNumber) is a non optional integer now");
+};
+// prints -> "123"
+// instead of the code above you can write it like this
+if let myNumber {
+    print("\(myNumber)");
+}// a more shorter code to write
+
+// this code checks first by checking whether myNumber contains a value, just like the code in the previous example. if myNumber has a value, the value of a new constant named myNumber is set to that value.
+
+var newNumber: Int! = 33;
+if let number = newNumber{
+    print("\(number)");
+}
+
+// if you want to manipulate the value within the first branch of the if statement, you could write -> if var myNumber instead.
+// changes you make to myNumber inside the body of the if statement apply only to that local varable, not the original, optional constant or variable that you unwrapped.
+if var myNumber = Int(possibleNumber) {
+    myNumber = 99;
+    print("\(possibleNumber) and \(myNumber)");
+}
+
+// you can include as many optional bindings and boolean conditions in a single if statement as you need to, seperated by commas
+if let firstNumber = Int("4"), let secondNumber = Int("42"), firstNumber < secondNumber && secondNumber < 100 {
+    print("\(firstNumber) < \(secondNumber) < 100");
+} // Prints "4 < 42 < 100"
+ 
+// Constants and variables created with optional binding in an if statemens are available only within the bosdy of the if statement.
+
+// Another way to handle a missing value is to supply the default value using the nil-coalescing operator (??).
+// if the optional on the left of the ?? isnt nil, that value is unwrapped and used. Otherwise, the value on the right of ?? is used.
+
+let name: String? = nil;
+let greeting = "Hello, " + (name ?? "friend") + "!";
+// the code above greets someone by the name if one is specified, and uses a generic when the name is nil
+
+
+// Implicitly Unwrapped Optionals
+let possibleString: String? = "An optional string";
+let forcedString: String = possibleString!; // forced unwrap
+
+let assumedString: String! = "An implicit unwrapped optional string";
+let implicitString: String = assumedString; // unwrapped automatically
+// you can think of an implicitly unwrapped optional as giving permission for the optional to be force-unwrapped if needed.
+
+let optionlString = assumedString;
+// the type of optionalString is of type "String?" and assumedString isnt force unwrapped
 
