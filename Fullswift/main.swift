@@ -8,7 +8,9 @@
 import Foundation
 
 print("Hello, World!");
-var name: String = "Hello";
-print(name);
+
+print(loopControl(1, 5))
+
+
 
 
