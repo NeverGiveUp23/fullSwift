@@ -70,3 +70,30 @@ let mark: Character = "!";
 stringConcat.append(mark);
 print("-------------------------");
 printChars(stringConcat);
+print("-------------------------");
+print(greeting[greeting.startIndex]); // H
+print("-------------------------");
+print(greeting[greeting.index(before: greeting.endIndex)]) // o
+print("-------------------------");
+
+for index in greeting.indices {
+    print("\(greeting[index]) ");
+} // H e l l o
+print("-------------------------");
+
+welcome.insert("!", at: welcome.endIndex);
+print(welcome);
+print("-------------------------");
+welcome.insert(contentsOf: " There", at: welcome.index(before: welcome.endIndex));
+print(welcome);
+// Hello There!
+print("-------------------------");
+welcome.remove(at: welcome.index(before: welcome.endIndex));
+print(welcome); // Hello There
+print("-------------------------");
+scenes(romeoAndJuliet); // There are 5 scenes in Act 1
+print("-------------------------");
+endScene(romeoAndJuliet);
+// 6 mansion scenes, and 2 cell scenes
+print("-------------------------");
+
