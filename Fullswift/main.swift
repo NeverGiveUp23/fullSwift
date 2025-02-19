@@ -96,4 +96,101 @@ print("-------------------------");
 endScene(romeoAndJuliet);
 // 6 mansion scenes, and 2 cell scenes
 print("-------------------------");
+someArray.append(3);
+print(someArray.count); // 1
+print("-------------------------");
+print(threeDoubles); // [0.5, 0.5, 0.5, 0.5]
+print("-------------------------");
+print(shoppingList.count);
+shoppingList.append("Cereal");
+print("-------------------------");
+
+print(shoppingList.first!); // force unwrap to get element
+print("-------------------------");
+
+print(shoppingList.description);
+shoppingList.insert("Pancakes", at: 0);// insert at index 0
+print("-------------------------");
+
+print(shoppingList.description);
+shoppingList += ["Chocolate Spread", "Cheese", "Butter"];
+print("-------------------------");
+
+print(shoppingList.description);
+
+for index in 0..<shoppingList.count {
+    print(shoppingList[index]);
+}
+print("-------------------------");
+
+print(shoppingList[2]);
+
+shoppingList[4...6] = ["Shirt", "Apples"];
+print(shoppingList[4...6]); // ["Shirt", "Apples", "Butter"]
+print("-------------------------");
+getValue(shoppingList);
+/*
+ Item 1: Pancakes
+ Item 2: Eggs
+ Item 3: Milk
+ Item 4: Cheese
+ Item 5: Shirt
+ Item 6: Apples
+ Item 7: Butter
+ */
+
+
+print("-------------------------");
+print("-------------------------");
+
+letters.insert("Name");
+
+print("-------------------------");
+// use intersection method to create a new set with only the values common to both sets
+print(oddDigits.intersection(evenDigits).sorted())
+
+print(oddDigits.symmetricDifference(singleDigitPrimeNumbers).sorted()); // [1, 2, 9]
+
+print(houseAnimals.isSubset(of: farmAnimals))// true
+print(farmAnimals.isSuperset(of: houseAnimals))// true
+print(farmAnimals.isDisjoint(with: cityAnimals))// true
+
+print("-------------------------");
+print(dictV.values)
+
+
+print(anotherDict.keys.sorted())
+
+for (key, value) in airports {
+    print("\(key): \(value)");
+}
+
+airports["NJ"] = "New Jersey";
+
+print("-------------------------");
+for (key, value) in airports {
+    print("\(key): \(value)");
+}
+// access the old value while updating to a new value
+// updateValue returns an optional value of the dictionary
+
+if let oldValue = airports.updateValue("XYZ airport", forKey: "XYZ") {
+    print("The old value in airport was \(oldValue)");
+};
+
+print("-------------------------");
+for (key, value) in airports {
+    print("\(key): \(value)");
+}
+/*
+ NYC: Laguardia
+ XYZ: XYZ airport -> changed
+ NJ: New Jersey
+ */
+print("-------------------------");
+if let removedValue = airports.removeValue(forKey: "xyz".uppercased()) {
+    print("The removed value is \(removedValue)")
+} else {
+    print("No value option");
+}; // The removed value is XYZ airport
 
