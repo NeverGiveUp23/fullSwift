@@ -193,4 +193,23 @@ if let removedValue = airports.removeValue(forKey: "xyz".uppercased()) {
 } else {
     print("No value option");
 }; // The removed value is XYZ airport
+print("-------------------------");
+responseMessages[301] = "Moved Permanently"
+for code in httpResponseCodes {
+    if let message = responseMessages[code] {
+        print("Response \(code): \(message)")
+    }
+}
+/*
+ Response 200: OK
+ Response 403: Access forbidden
+ Response 301: Moved Permanently
+ */
+
+print("-------------------------");
+for key in interestingNumbers.keys {
+    interestingNumbers[key]?.sort(by: >) // sorts in descending order
+};
+
+print(sortDict(interestingNumbers));
 

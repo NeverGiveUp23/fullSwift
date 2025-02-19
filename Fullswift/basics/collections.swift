@@ -57,4 +57,23 @@ let airportCode = [String](airports.keys);
 let airportNames = [String](airports.values);
 // airportNames is ["London Heathrow", "Toronto Pearson"]
 
+var responseMessages: [Int: String] = [200: "OK",
+                        403: "Access forbidden",
+                        404: "File not found",
+                        500: "Internal server error"]
 
+let httpResponseCodes: [Int] = [200, 403, 301];
+
+var interestingNumbers = ["primes": [2, 3, 5, 7, 11, 13, 17],
+                          "triangular": [1, 3, 6, 10, 15, 21, 28],
+                          "hexagonal": [1, 6, 15, 28, 45, 66, 91]]
+
+
+func sortDict(_ dict: [String: [Int]]) -> [Int] {
+    var descArray: [Int] = [];
+    for key in dict.keys {
+        descArray.append(contentsOf: dict[key]!.sorted(by: >))  // sorts in descending order
+        
+    };
+    return descArray;
+}
