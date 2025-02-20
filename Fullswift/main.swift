@@ -213,3 +213,117 @@ for key in interestingNumbers.keys {
 
 print(sortDict(interestingNumbers));
 
+for tickmark in 0..<minutes {
+    print(tickmark);
+}
+
+// Some users might want fewer tick marks in their UI. They could prefer one mark every 5 minutes instead. Use the stride(from:to:by:) function to skip the unwanted marks.
+var minutes = 60;
+var minuteInterval = 5;
+
+for tickmark in stride(from: 0, to: minutes, by: minuteInterval) {
+    print(tickmark);
+}
+
+print("-------------------------");
+print(greet(person: "Felix"));
+
+print(alreadyGreeted(person: "Felix", alreadyGreeted: true))
+
+print("-------------------------");
+printWithoutCounting(string: "Hello, World");
+
+if let bounds = minMax(array: [8, -6, 2, 109, 3, 71]) {
+    print("min is \(bounds.min), and max is \(bounds.max)");
+}
+
+print(anotherGreet(person: "Felix", from: "Bronx"));
+
+print(vaidaic(1,2,3,4,5))
+
+var someInt = 99;
+var anotherInt = 44;
+swapTwoInts(&someInt, &anotherInt);
+print(someInt, anotherInt);
+
+
+// using function types
+// You use function types just like any other types in Swift. For example, you can define a constant or variable to be of a function type and assign an appropriate function to that variable:
+var mathFunction: (Int, Int) -> Int = addInts;
+print(mathFunction(4, 5)); // returns 9;
+mathFunction = multiplyInts;
+print(mathFunction(66, 3)); // returns 198
+
+printMathFunction(addInts, 44, 99); // return 143
+
+print(chooseStepFunction(backword: true));
+
+
+
+// CLOSURES
+
+var reversedNames = newNames.sorted(by: backward);
+print(reversedNames);
+
+greet(); // -> Closure call
+
+print("----------------------");
+print(add(5,2));
+
+print(addAnother(7,9));
+
+print(doubled) // Output: [2, 4, 6, 8, 10]
+
+print("----------------------");
+print(indexedDouble)
+
+print("---------------------");
+print(incrementByTwo());
+
+print(reveresedNames)
+
+print(incrementByTen());
+print(incrementByTen());
+print(incrementByTen());
+print(incrementByTen());
+//10
+//20
+//30
+//40
+
+
+instance.doSomething();
+print(instance.x);
+
+completionHandlers.first?();
+print(instance.x);
+
+
+print("Now serving \(customerProvider())!")
+// Prints "Now serving Chris!"
+print(customersInLine.count)
+
+print("Now serving \(customerProvider())!")
+// Prints "Now serving Chris!"
+print(customersInLine.count);
+/*
+ Even though the first element of the customersInLine array is removed by the code inside the closure, the array element isn’t removed until the closure is actually called. If the closure is never called, the expression inside the closure is never evaluated, which means the array element is never removed.
+ */
+
+server(customer: {customersInLine.remove(at: 0)});
+// call with autoclosure tag
+server2(customer: customersInLine.remove(at: 0));
+
+addCustomer(addCustomer: "Felix");
+print(customersInLine.count);
+print(customerAddition.count);
+// Prints "Now serving Chris!"
+print(customersInLine.count)
+
+print(customerAdditions())
+print(customersInLine.count)
+
+
+for (place, customer) in customersInLine.enumerated() {
+    print("\(customer) is \(place + 1) in line");
+}
