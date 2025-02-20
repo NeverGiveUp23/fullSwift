@@ -340,3 +340,6 @@ print(subtract(10, 5));
 
 print(goodWeather("Sunny"));
 print(badWeather("Raining"));
+
+
+print(squared) // [1, 4, 9, 16, 25]

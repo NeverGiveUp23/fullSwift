@@ -201,4 +201,14 @@ func weather(_ weather: Bool) -> (String) -> String {
 let goodWeather = weather(true);
 let badWeather = weather(false);
 
+let concate: (String, String) -> String = {(str1: String, str2: String) -> String in
+     str1 + str2;
+}
 
+let sortNames = ["Alice", "Bob", "Charlie", "Dave"];
+let sortedNamedAgain = sortNames.sorted {$0.count < $1.count};
+
+func applyOperation(to numbers: [Int], operation: (Int) -> Int) -> [Int] {
+    numbers.map(operation);
+}
+let squared = applyOperation(to: numbers, operation: {$0 * $0});
