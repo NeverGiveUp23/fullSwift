@@ -327,3 +327,16 @@ print(customersInLine.count)
 for (place, customer) in customersInLine.enumerated() {
     print("\(customer) is \(place + 1) in line");
 }
+
+print(performMul()(4, 6))
+// instead of the code above:
+print(returnedClosure(8,9)); // 72
+
+
+print(addition(5,5));
+print(divide(10, 5));
+print(subtract(10, 5));
+
+
+print(goodWeather("Sunny"));
+print(badWeather("Raining"));

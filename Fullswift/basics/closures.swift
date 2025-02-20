@@ -9,30 +9,29 @@
 
 // Closures can capture and store references to any constants and variables from the context in which theyre defined.
 
-let newNames: [String] = ["Chris", "Alex", "Ewa", "Barry", "Daniella"];
+let newNames: [String] = ["Chris", "Alex", "Ewa", "Barry", "Daniella"]
 
 func backward(_ s1: String, _ s2: String) -> Bool {
-    s1 > s2;
+    s1 > s2
 }
 // shorthad arguments  using $0 and $1 as the array elements called a trailing closure
-let reveresedNames = newNames.sorted() {$0 > $1};
+let reveresedNames = newNames.sorted { $0 > $1 }
 
 let greet = {
-    print("Hello");
-};
+    print("Hello")
+}
 // closure accepting two params
 let add: (Int, Int) -> Int = { (a, b) in
-    a + b;
+    a + b
 }
 
 let multiply: (Int, Int) -> Int = { (a, b) in
-    a * b;
+    a * b
 }
 
-
 let addAnother: (Int, Int) -> Int = {
-    $0 + $1;
-};
+    $0 + $1
+}
 
 let numbers = [1, 2, 3, 4, 5]
 
@@ -43,22 +42,20 @@ let doubled = numbers.map { $0 * 2 }
 let evens = numbers.filter { $0 % 2 == 0 }
 // enumerated allows you to access the index, like so:
 let indexedDouble = numbers.enumerated().map { (index, value) in
-    "Index \(index): \(value * 2)";
+    "Index \(index): \(value * 2)"
 }
-
 
 // Capturing values and escaping closures
 func makeInvrement(incrementAmount: Int) -> () -> Int {
-    var total = 0;
+    var total = 0
     let increment: () -> Int = {
-        total += incrementAmount;
-        return total;
+        total += incrementAmount
+        return total
     }
-    return increment;
-};
+    return increment
+}
 
-let incrementByTwo = makeInvrement(incrementAmount: 2);
-
+let incrementByTwo = makeInvrement(incrementAmount: 2)
 
 /*
  The map(_:) method calls the closure expression once for each item in the array. You don’t need to specify the type of the closure’s input parameter, number, because the type can be inferred from the values in the array to be mapped.
@@ -83,73 +80,68 @@ let incrementByTwo = makeInvrement(incrementAmount: 2);
  */
 
 let digitNames = [
-    0: "Zero", 1: "One", 2: "Two",   3: "Three", 4: "Four",
-    5: "Five", 6: "Six", 7: "Seven", 8: "Eight", 9: "Nine"
+    0: "Zero", 1: "One", 2: "Two", 3: "Three", 4: "Four",
+    5: "Five", 6: "Six", 7: "Seven", 8: "Eight", 9: "Nine",
 ]
 let newNumbers = [16, 58, 510]
 
-let strings = newNumbers.map {(newNumber) -> String in
-    var number = newNumber;
-    var output = "";
-    
+let strings = newNumbers.map { (newNumber) -> String in
+    var number = newNumber
+    var output = ""
+
     repeat {
-        output = digitNames[number % 10]! + output;
-        number /= 10;
-    } while number > 0;
-    return output;
+        output = digitNames[number % 10]! + output
+        number /= 10
+    } while number > 0
+    return output
 }
-
-
 
 // this is a function that has 1 param. the function returns another function that takes in no params and returns an Int: ( -> () -> Int ).
 // the return type of makeIncrement is () -> Int. This means that it returns a function, rather than a simple value.
 func makeIncrement(forIncrement amount: Int) -> () -> Int {
-    var runningTotal = 0;
+    var runningTotal = 0
     func increment() -> Int {
-        runningTotal += amount;
-        return runningTotal;
+        runningTotal += amount
+        return runningTotal
     }
-    return increment;
+    return increment
 }
 // even tho incrementByTen is declared as a constant it can increment the contents in the closure function, this is because when you declare a constant or variable pointing to a function or closure it references the function or closure, in incrementByTen, its the choice of function or closure that is actually constant, not the function/closure contents in the body.
-let incrementByTen = makeIncrement(forIncrement: 10);
-
+let incrementByTen = makeIncrement(forIncrement: 10)
 
 // ESCAPING CLOSURES -> A closure is said to escape a function when the closure is passed as an argument to the function, but is called after the function returns.
 // @escaping before the parameter’s type to indicate that the closure is allowed to escape.
-var completionHandlers: [() -> Void] = [];
-func someFunctinWithEscapingClosure(completionHandler: @escaping () -> Void){
-    completionHandlers.append(completionHandler);
+var completionHandlers: [() -> Void] = []
+func someFunctinWithEscapingClosure(completionHandler: @escaping () -> Void) {
+    completionHandlers.append(completionHandler)
 }
 
 func someFunctionWithNoClosureEscape(closure: () -> Void) {
-    closure();
+    closure()
 }
 
 class SomeClass {
-    var x = 10;
-    
+    var x = 10
+
     func doSomething() {
         someFunctinWithEscapingClosure {
-            self.x = 300;
-        };
+            self.x = 300
+        }
         someFunctionWithNoClosureEscape {
-            x = 100;
+            x = 100
         }
     }
 }
 
-let instance = SomeClass();
+let instance = SomeClass()
 
+var customersInLine = ["Chris", "Alex", "Ewa", "Barry", "Daniella"]
 
-var customersInLine = ["Chris", "Alex", "Ewa", "Barry", "Daniella"];
-
-let customerProvider = {customersInLine.remove(at: 0)};
-let customerAdditions = {customersInLine.append("Felix")};
+let customerProvider = { customersInLine.remove(at: 0) }
+let customerAdditions = { customersInLine.append("Felix") }
 /*
  Even though the first element of the customersInLine array is removed by the code inside the closure, the array element isn’t removed until the closure is actually called. If the closure is never called, the expression inside the closure is never evaluated, which means the array element is never removed.
  */
-
 
 // you get the same result in this closure
 func server(customer customerProvider: () -> String) {
@@ -157,10 +149,56 @@ func server(customer customerProvider: () -> String) {
 }
 
 // witht he autoclosure attribute, now you can call the function as if it took a String argument instead of a closure
-func server2(customer customerProvider: @autoclosure () -> String){
+func server2(customer customerProvider: @autoclosure () -> String) {
     print("Now serving \(customerProvider())!")
 }
-var customerAddition: [() -> String] = [];
-func addCustomer(addCustomer customerProvider: @autoclosure @escaping () -> String) {
-    customerAddition.append(customerProvider);
+var customerAddition: [() -> String] = []
+func addCustomer(
+    addCustomer customerProvider: @autoclosure @escaping () -> String
+) {
+    customerAddition.append(customerProvider)
 }
+
+let multiplyAgain: (Int, Int) -> Int = { $0 * $1 }
+
+let mul = multiplyAgain(5,7);
+func performMul() -> (Int, Int) -> Int {multiplyAgain;}
+// store function that takes in a closure in a const or variable
+let returnedClosure = performMul();
+
+
+// this is useful if you want to do multiple operations and call easily
+func createOperation(_ operation: String) -> (Int, Int) -> Int {
+    switch operation{
+    case "add":
+        {$0 + $1};
+    case "subtract":
+        {$0 - $1}
+    case "multiply":
+        {$0 * $1};
+    case "divide":
+        {$0 / $1}
+    default:
+        {$0 + $1} // default to addition
+    
+    }
+}
+
+let addition = createOperation("add");
+let divide = createOperation("DiVidE".lowercased())
+let subtract = createOperation("subtract");
+
+
+func weather(_ weather: Bool) -> (String) -> String {
+    switch weather{
+    case true:
+        {"\($0) is good"}
+    case false:
+        {"\($0) is not good"}
+    }
+}
+
+let goodWeather = weather(true);
+let badWeather = weather(false);
+
+
