@@ -343,3 +343,39 @@ print(badWeather("Raining"));
 
 
 print(squared) // [1, 4, 9, 16, 25]
+
+
+print("---------------------")
+// ENUMS
+printDirection(direction);
+
+
+print(iterateEnum());
+// this will override the previous declaration
+barcodeProduct = .qrCode("AHJFIBHNFJKNKJBDE");
+// you can extract the asociated values with a switch statement for use
+switch barcodeProduct {
+case .upc(let numberSystem, let manufactur, let product, let check):
+    print(" \(numberSystem), \(manufactur), \(product), \(check)")
+case .qrCode(let productCode):
+    print("QR code: \(productCode)")
+}
+
+
+print(compass); // east
+
+
+let position = 11;
+// example use of Optional Binding to try to access a planets raw value of 11 if available
+if let somePlanet = Planet(rawValue: position) {
+    switch somePlanet {
+    case .earth:
+        print("Mostly Water");
+    default:
+        print("Not good food");
+    }
+} else {
+    print("There isnt a planet with that name");
+}
+
+// The statement if let somePlanet = Planet(rawValue: 11) creates an optional Planet, and sets somePlanet to the value of that optional Planet if it can be retrieved. 
