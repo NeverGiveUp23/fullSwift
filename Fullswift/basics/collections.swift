@@ -77,3 +77,11 @@ func sortDict(_ dict: [String: [Int]]) -> [Int] {
     };
     return descArray;
 }
+
+func sortingDict(_ dict: [String: [Int]]) -> [Int] {
+    var descArray: [Int] = [];
+
+    for key in dict.keys {
+        descArray.append(contentsOf: dict[key]!.sorted(by: >));
+    }
+}
