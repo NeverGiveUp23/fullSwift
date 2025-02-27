@@ -77,11 +77,13 @@ func sortDict(_ dict: [String: [Int]]) -> [Int] {
     };
     return descArray;
 }
-
+// a function that returns an array of ints from a dictionry with keys as Strings and its values as Int, -> returning those int values from each key in descending order
 func sortingDict(_ dict: [String: [Int]]) -> [Int] {
     var descArray: [Int] = [];
 
     for key in dict.keys {
         descArray.append(contentsOf: dict[key]!.sorted(by: >));
     }
+    
+    return descArray;
 }

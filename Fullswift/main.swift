@@ -379,3 +379,42 @@ if let somePlanet = Planet(rawValue: position) {
 }
 
 // The statement if let somePlanet = Planet(rawValue: 11) creates an optional Planet, and sets somePlanet to the value of that optional Planet if it can be retrieved. 
+
+
+print(person?.age ?? 44);
+print(personStruct?.age ?? 31);
+
+
+print("The width of the resolution is \(someResolution.width)");
+SomeVideo.resolution.width = 5360;
+var videoRes = SomeVideo.resolution.width;
+print("The width for the video is \(videoRes)");
+
+print("------------------------- \n")
+
+
+print("The original width for the cinema that has been copied from vga is:  \(cinema.width)");
+cinema.width = 999;
+print("The changed width for the cinema is \(cinema.width)");
+// vga keeps the original value for width (look in structs file to know why
+print("The with for vga whic cinema made a copy of is still the original: \(vga.width)")
+
+
+currentDirection.turnNorth();
+print("The current direction is \(currentDirection)")
+print("The remembered direction is \(rememberDirection)")
+
+
+tenEighty.resolution = vga
+tenEighty.interlaced = true
+tenEighty.name = "1080i"
+tenEighty.frameRate = 25.0
+
+
+anotherTenEighty.frameRate = 90.0;
+
+print(tenEighty.frameRate); // is now changed to 90.0 due to class being reference types
+
+
+tenEighty === anotherTenEighty ? print("We are the same") : print("We are not the same")
+// we are the same
