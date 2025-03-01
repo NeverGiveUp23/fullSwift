@@ -418,3 +418,27 @@ print(tenEighty.frameRate); // is now changed to 90.0 due to class being referen
 
 tenEighty === anotherTenEighty ? print("We are the same") : print("We are not the same")
 // we are the same
+
+
+felix.hasJob = false;
+
+felix.felixHasJob();
+
+
+rangeOfItems.firstValue = 6;
+// the range now represents integer values 6, 7, and 8
+
+
+manager.data.append("Some text");
+manager.data.append("Some more date");
+
+for data in manager.data {
+    print(data);
+}
+
+
+for i in 1...7 {
+    if i.isMultiple(of: 2) {
+        print(i)
+    }
+}

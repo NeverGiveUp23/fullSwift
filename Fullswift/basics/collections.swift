@@ -31,7 +31,7 @@ var letters = Set<String>();
 
 var favGenres: Set<String> = ["Name", "Rock"];
 // due to type inference you dont need to put the data type, if youre going to initialize the values
-var newGenres: Set = ["Hip hop", "RnB"];
+var newGenres: Set = ["Hip hop", "RnB", "RnB"];
 
 // use intersection method to create a new set with only the values common to both sets
 var oddDigits: Set = [1, 3, 5, 7, 9]

@@ -91,3 +91,4 @@ func endScene(_ actArray: [String]) {
     }
     print("\(mansionCount) mansion scenes, and \(cellCount) cell scenes");
 }
+

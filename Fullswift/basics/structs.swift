@@ -80,3 +80,30 @@ let tenEighty = VideoMode();
 let anotherTenEighty = tenEighty;
 // bcus classes are reference types, both actually refer to the same VideoMode() instance. Just two different names for the same single instance
 
+struct Felix {
+    var name: String
+    var handsome: Bool = true
+    var age: Int
+    var hasJob: Bool?
+    
+    init(name: String, handsome: Bool, age: Int, hasJob: Bool? = nil) {
+        self.name = name
+        self.handsome = handsome
+        self.age = age
+        self.hasJob = hasJob
+    }
+    
+    mutating func felixHasJob() {
+        
+        print("Hello \(name)");
+        
+        hasJob == true ? print("Finally") : print("Get an iOS Job Now!");
+        
+    }
+
+    
+}
+
+
+var felix = Felix(name: "Felix", handsome: true, age: 31)
+
