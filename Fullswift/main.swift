@@ -442,3 +442,35 @@ for i in 1...7 {
         print(i)
     }
 }
+
+
+counter.increment();
+print(counter.count);
+counter.incrementBy(44);
+print(counter.count)
+
+
+
+let car = Car(99);
+// let carModel = readLine();
+
+print(car.description)
+
+
+
+let largetNumbers: [Int] = [2, 77, 88, 34, 3, 6, 99]
+var largest = 0;
+
+
+for number in largetNumbers {
+    if number > largest{
+        largest = number
+    }
+}
+
+print(largest)
+
+
+for i in 0...10 {
+    print(i)
+}
