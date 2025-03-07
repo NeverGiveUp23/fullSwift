@@ -474,3 +474,15 @@ print(largest)
 for i in 0...10 {
     print(i)
 }
+
+
+
+var arr: [Int] = [43, 1, 4, 99, 83, 2, 3, 5];
+
+print(insertionSort(arr)); // [1, 2, 3, 4, 5, 43, 83, 99]
+
+print(arr); // [43, 1, 4, 99, 83, 2, 3, 5] -> original is unaffected
+
+
+print(zeroByTwo.height, zeroByTwo.width);
+

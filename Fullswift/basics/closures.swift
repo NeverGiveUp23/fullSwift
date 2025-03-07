@@ -212,3 +212,22 @@ func applyOperation(to numbers: [Int], operation: (Int) -> Int) -> [Int] {
     numbers.map(operation);
 }
 let squared = applyOperation(to: numbers, operation: {$0 * $0});
+
+
+func insertionSort(_ arr: [Int]) -> [Int]{
+    var arr = arr; // create a mutable copy of the array
+    let n = arr.count;
+    
+    for i in 1..<n{
+        var j = i - 1;
+        let key = arr[i];
+        
+        while j >= 0 && arr[j] > key{
+            arr[j + 1] = arr[j];
+            j -= 1;
+        }
+        arr[j + 1] = key;
+    }
+    
+    return arr;
+}
