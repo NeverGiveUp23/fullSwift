@@ -124,7 +124,7 @@ indirect enum ArithmeticExpression {
     case additon(ArithmeticExpression, ArithmeticExpression)
     case multiplication(ArithmeticExpression, ArithmeticExpression)
 }
-// thsi enum can store three types of cases, a plain number, the addition of two expressions and the same for multiplication.
+// this enum can store three types of cases, a plain number, the addition of two expressions and the same for multiplication.
 // add and multiply have the enum as associated values
 
 let five = ArithmeticExpression.number(5);
