@@ -486,3 +486,54 @@ print(arr); // [43, 1, 4, 99, 83, 2, 3, 5] -> original is unaffected
 
 print(zeroByTwo.height, zeroByTwo.width);
 
+
+print("----------- Property Wrappers -----------")
+
+print(rectangle.height); // 0, since the property wrapper starts you at 0
+rectangle.height = 100; // in the property wrapper, it chack to make sure the number is less than or equal to 12.
+print(rectangle.height); // 12
+
+/*
+ The height and width properties get their initial values from the definition of TwelveOrLess, which sets TwelveOrLess.number to zero. The setter in TwelveOrLess treats 10 as a valid value so storing the number 10 in rectangle.height proceeds as written. However, 24 is larger than TwelveOrLess allows, so trying to store 24 end up setting rectangle.height to 12 instead, the largest allowed value.
+ */
+
+
+print(zeroRectangle.height, zeroRectangle.width) // 0 0
+zeroRectangle.height = 124;
+print(zeroRectangle.height, zeroRectangle.width) // 100 0
+
+print(unitRectangle.height, unitRectangle.width) // 1 1
+
+print(narrowRectangle.height, narrowRectangle.width) // 2 3
+
+narrowRectangle.height = 100;
+narrowRectangle.width = 200;
+print(narrowRectangle.height, narrowRectangle.width) // 5 4
+
+print(mixedRectangle.height)
+// Prints "1"
+
+
+mixedRectangle.height = 120
+print(mixedRectangle.height)
+// Prints "100" since the maximum is 100
+
+print(mixedRectangle.width) // prints "2"
+mixedRectangle.width = 12
+print(mixedRectangle.width) // prints "9"
+
+someStructure.someNumber = 4
+print(someStructure.$someNumber, someStructure.someNumber)
+// Prints "false 4"
+
+
+someStructure.someNumber = 55
+print(someStructure.$someNumber, someStructure.someNumber)
+// Prints "true 12"
+
+/*
+ Writing someStructure.$someNumber accesses the wrapper’s projected value. After storing a small number like four, the value of someStructure.$someNumber is false. However, the projected value is true after trying to store a number that’s too large, like 55.
+ */
+
+var sizedRectangle = SizedRectangle()
+print(sizedRectangle.resize(to: TwoSize.large))

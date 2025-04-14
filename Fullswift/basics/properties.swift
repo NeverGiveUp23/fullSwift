@@ -21,6 +21,7 @@ struct FixedLength {
 var rangeOfItems = FixedLength(firstValue: 0, length: 3);
 // the range represents integer values 0, 1, and 2
 
+// Lazy stored properties are useful when the initial value for a property is dependent on outside factors whose values arent known until after an instances initialization is complete
 class DataImporter {
     var filename = "data.txt"
 }
@@ -32,4 +33,5 @@ class DataManager {
 
 
 let manager = DataManager();
+
 
