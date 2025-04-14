@@ -105,5 +105,5 @@ struct Felix {
 }
 
 
-var felix = Felix(name: "Felix", handsome: true, age: 31)
+var felix: Felix = Felix(name: "Felix", handsome: true, age: 31)
 

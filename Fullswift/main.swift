@@ -486,3 +486,13 @@ print(arr); // [43, 1, 4, 99, 83, 2, 3, 5] -> original is unaffected
 
 print(zeroByTwo.height, zeroByTwo.width);
 
+
+print("----------- Property Wrappers -----------")
+
+print(rectangle.height); // 0, since the property wrapper starts you at 0
+rectangle.height = 100; // in the property wrapper, it chack to make sure the number is less than or equal to 12.
+print(rectangle.height); // 12
+
+/*
+ The height and width properties get their initial values from the definition of TwelveOrLess, which sets TwelveOrLess.number to zero. The setter in TwelveOrLess treats 10 as a valid value so storing the number 10 in rectangle.height proceeds as written. However, 24 is larger than TwelveOrLess allows, so trying to store 24 end up setting rectangle.height to 12 instead, the largest allowed value.
+ */
