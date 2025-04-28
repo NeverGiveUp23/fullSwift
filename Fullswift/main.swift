@@ -543,4 +543,8 @@ print(sizedRectangle.resize(to: TwoSize.large))
 print("------------- Mutating --------------")
 print(testInstance.test) // prints 'Test', which is the original value
 testInstance.test = "Hello, World!" // changing the underlying value of test in the struct
-print(testInstance.test) // prints 'Hello World' 
+print(testInstance.test) // prints 'Hello World'
+
+
+print("------------ Type Methods --------------")
+SomeAClass.someTypeMethod() // this is how you call a type method on a class. Dot syntax

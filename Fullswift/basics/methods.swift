@@ -74,3 +74,75 @@ var testInstance = Test();
 
 
 
+// TYPE METHODS
+// Instance methods, as described above, are methods that you call on an instance of a particular type. You can also define methods that are called on the type itself. These are called type methods.
+// You indicate a type method with the static keyword before the methods func keyword.
+
+// classes can use the class keyword instead, to allow subclasses to override the superclass's implementation of the mathod
+
+class SomeAClass {
+    class func someTypeMethod(){
+        print(10);
+    }
+}
+
+
+struct LevelTracker {
+    static var highestLevelUnlocked = 1
+    var currentLevel = 1
+    
+    static func unlock(_ level: Int){
+        if  level > highestLevelUnlocked {
+            highestLevelUnlocked = level
+        }
+    }
+    
+    static func isUnlocked(_ level: Int) -> Bool {
+        return level <= highestLevelUnlocked
+    }
+    
+    @discardableResult
+    mutating func advance(to level: Int) -> Bool {
+        if LevelTracker.isUnlocked(level){
+            currentLevel = level
+            return true
+        } else {
+            return false
+        }
+    }
+}
+
+// EXPLANATION OF STATIC AND TYPE METHODS, INSTANCE TYPE AND WHEN TO USE IT.
+
+/*
+ 3. Memory Implications
+ 
+ Property Type ||  Memory Allocation              ||  Lifetime
+ --------------   -------------------------------   -----------
+ Instance      || Each instance gets its own copy || Exists as long as the instance exists.
+ Static        || Single copy in global memory    || Exists for the entire app runtime.
+ 
+ 4. When to Use static vs. Instance Properties
+ 
+ Use Case           ||  Example                                                  || Choice
+ -------------------  -----------------------------------------------------------  --------
+ Shared state       ||  Highest unlocked level (all players see the same value). || static
+ Per-instance state ||  Current level (each player has their own progress).      || Instance property
+ 
+ 
+ 5. Analogy: Bulletin Board vs. Personal Notebook
+
+     'static' Property: Like a bulletin board in a school.
+
+        > Anyone can read/write to it (LevelTracker.highestLevelUnlocked).
+
+        > Changes are visible to everyone.
+
+     'Instance Property': Like a personal notebook (currentLevel).
+
+        > Each student (instance) has their own notebook.
+
+        > Changing one doesn’t affect others.
+ 
+ By separating shared (static) and instance-specific state, your LevelTracker elegantly handles both global progression rules and individual player progress.
+ */
