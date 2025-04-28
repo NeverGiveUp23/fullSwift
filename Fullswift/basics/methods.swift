@@ -160,3 +160,40 @@ class Player {
         playerName = name
     }
 }
+
+@propertyWrapper
+struct NumberOfClasses {
+    private var numOfClasses: Int
+    
+    var wrappedValue: Int {
+        get { return numOfClasses}
+        set {
+            if newValue > 12 {
+                print("Cant take more than 12 classes")
+                numOfClasses = 12
+            } else {
+                numOfClasses = newValue
+            }
+        }
+    }
+    init() {
+        self.numOfClasses = 0
+    }
+}
+
+
+struct ClassRoom{
+    static var homeroom: Int = 132
+    @NumberOfClasses var classes: Int
+    var classNames: [String] = []
+    
+    mutating func addClasses(className cn: String) {
+        if classes <= 12 {
+            classNames.append(cn)
+            print("Adding \(cn) to the class list")
+        } else {
+            print("Sorry, you can't take more than 12 classes")
+        }
+        return classes += 1
+    }
+}

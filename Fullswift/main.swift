@@ -561,3 +561,51 @@ if player.tracker.advance(to: 6) {
 } else {
     print("Level is not unlocked")
 }
+
+
+var classes = ClassRoom()
+print(classes.classes)
+
+classes.addClasses(className: "Math")
+print(classes.classes)
+classes.addClasses(className: "English")
+print(classes.classes)
+classes.addClasses(className: "Science")
+print(classes.classes)
+
+classes.addClasses(className: "Math")
+print(classes.classes)
+classes.addClasses(className: "English")
+print(classes.classes)
+classes.addClasses(className: "Science")
+print(classes.classes)
+
+classes.addClasses(className: "Math")
+print(classes.classes)
+classes.addClasses(className: "English")
+print(classes.classes)
+classes.addClasses(className: "Science")
+print(classes.classes)
+
+classes.addClasses(className: "Math")
+print(classes.classes)
+classes.addClasses(className: "English")
+print(classes.classes)
+classes.addClasses(className: "Science")
+print(classes.classes)
+
+classes.addClasses(className: "Math")
+print(classes.classes)
+classes.addClasses(className: "English")
+print(classes.classes)
+classes.addClasses(className: "Science")
+print(classes.classes)
+var number = 1
+for cn in classes.classNames {
+    if number <= 12 {
+        print("\(number): \(cn)")
+        number += 1
+    }else {
+        print("Sorry, you can't take more than 12 classes")
+    }
+}
