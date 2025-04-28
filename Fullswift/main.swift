@@ -548,3 +548,16 @@ print(testInstance.test) // prints 'Hello World'
 
 print("------------ Type Methods --------------")
 SomeAClass.someTypeMethod() // this is how you call a type method on a class. Dot syntax
+
+
+var player = Player(name: "Felix");
+player.complete(level: 1)
+print("\(player.playerName) has completed level \(LevelTracker.highestLevelUnlocked)")
+
+player = Player(name: "BGeto")
+
+if player.tracker.advance(to: 6) {
+    print("player is now on level 6")
+} else {
+    print("Level is not unlocked")
+}
