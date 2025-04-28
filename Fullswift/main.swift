@@ -537,3 +537,10 @@ print(someStructure.$someNumber, someStructure.someNumber)
 
 var sizedRectangle = SizedRectangle()
 print(sizedRectangle.resize(to: TwoSize.large))
+
+
+
+print("------------- Mutating --------------")
+print(testInstance.test) // prints 'Test', which is the original value
+testInstance.test = "Hello, World!" // changing the underlying value of test in the struct
+print(testInstance.test) // prints 'Hello World' 

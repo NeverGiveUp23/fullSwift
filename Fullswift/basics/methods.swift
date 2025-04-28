@@ -10,7 +10,7 @@ class Counter {
     var count = 0
     
     func increment() {
-        self.count += 1
+       count += 1
     }
     func decrement(){
         count -= 1
@@ -42,20 +42,35 @@ struct Point {
 let somePoint = Point(x: 4.0, y: 7.0);
 
 // modifying values from within instance methods
-// structs and enums are value types, by default value types cannot be mdified
+// structs and enums are value types, by default value types cannot be modified
 // if you need to modify those -> use the mutating keyword before func
 
 // mutating allows for you to mutate(change) it properties from within the method
 struct PointAgain {
-    static var x = 0.0 , y = 0.0
+    var x = 0.0 , y = 0.0
     
     // using self to identify the function x and global x
-    static func isToTheRight(xDelta: Double) {
+    mutating func isToTheRight(xDelta: Double) {
         x += xDelta;
+    }
+    
+    mutating func moveBy(x deltaX: Double, y deltaY: Double) {
+        x += deltaX
+        y += deltaY
     }
     
     
 }
+
+struct Test {
+    var test = "Test";
+    
+    mutating func changeTest(t test: String) {
+        self.test = test;
+    }
+}
+
+var testInstance = Test();
 
 
 
