@@ -684,3 +684,76 @@ async let thirdPhoto3 = listPhotosSleep(inGallery: photoNames[2])
 let photos = await print([firstPhoto1, secondPhoto2, thirdPhoto3])
 
 print(await logger.max) // prints 85
+
+
+print("------------- Type Casting --------------")
+
+var movieCount = 0
+var songCount = 0
+
+for item in library {
+    if item is Movie {
+        movieCount += 1
+    } else if item is Song {
+        songCount += 1
+    }
+}
+print("Media library contains \(movieCount) movies and \(songCount) songs")
+// Prints "Media library contains 2 movies and 3 songs"
+
+
+for item in library {
+    if let movie = item as? Movie {
+        print("Movie director: \(movie.director)")
+    } else if let song = item as? Song {
+        print("Song artist: \(song.artist)")
+    }
+}
+
+
+print("------------ Generics --------------")
+var someIntValue = 12
+var secondIntValue = 44
+
+swapTwoValues(&someIntValue, &secondIntValue)
+
+var SomeStringValue = "Hello"
+var secondSomeStringValue = "World"
+
+swapTwoValues(&SomeStringValue, &secondSomeStringValue)
+
+
+var stackOfString = Stack<String>()
+stackOfString.push("Hello")
+stackOfString.push("World")
+stackOfString.push("Felix")
+let stringRemovedFromTop = stackOfString.pop()
+print(stringRemovedFromTop) // Felix
+
+var stackOfInts = Stack<Int>()
+stackOfInts.push(1)
+stackOfInts.push(2)
+stackOfInts.push(3)
+stackOfInts.push(4)
+stackOfInts.push(5)
+let removedFromTop = stackOfInts.pop()
+print(removedFromTop) // 5
+
+// optional reading 'if let'
+if let readLastItem = stackOfInts.topItem {
+    print(readLastItem)
+}
+
+if let readLastString = stackOfString.topItem {
+    print(readLastString)
+}
+
+let stringsArray = ["cat", "dog", "llama", "parakeet", "terrapin"]
+
+if let foundIndex = findIndexInt(ofString: "dog", in: stringsArray) {
+    print("The index of dog is \(foundIndex)")
+} // returns 1
+
+if let doubleIndex = findGenericIndex(of: "Felix", in: ["Gabe", "Popper", "Felix", "Daisy", "Buster"]) {
+    print("The index of Felix is \(doubleIndex)")
+} // The index of Felix is 2
