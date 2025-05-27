@@ -660,7 +660,27 @@ john.residence?.address = someAddress
 
 
 print("------------- Handling Errors --------------")
-// throw VendingMachineError.insufficientFunds(coinsNeeded: 4)
-var vendingMachine = VendingMachine()
-// try keyword due to it possibly catching an error.
-try buySnack(person: "Bob", vendingMachine: vendingMachine)
+//// throw VendingMachineError.insufficientFunds(coinsNeeded: 4)
+//var vendingMachine = VendingMachine()
+//// try keyword due to it possibly catching an error.
+//try buySnack(person: "Bob", vendingMachine: vendingMachine)
+
+print("------------- Concurrency --------------")
+let photoNames = try await listPhotosSleep(inGallery: "Traveling")
+//let sortedNames = photoNames.sorted()
+//let name = sortedNames[0]
+//let photo = await loadPhoto(named: name)
+
+let firstPhoto = await listPhotoss(inGallery: photoNames[0])
+let secondPhoto = await listPhotoss(inGallery: photoNames[1])
+let thirdPhoto = await listPhotoss(inGallery: photoNames[2])
+
+let photos1 = [firstPhoto, secondPhoto, thirdPhoto]
+
+async let firstPhoto1 = listPhotosSleep(inGallery: photoNames[0])
+async let secondPhoto2 = listPhotosSleep(inGallery: photoNames[1])
+async let thirdPhoto3 = listPhotosSleep(inGallery: photoNames[2])
+
+let photos = await print([firstPhoto1, secondPhoto2, thirdPhoto3])
+
+print(await logger.max) // prints 85
