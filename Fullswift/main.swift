@@ -600,6 +600,7 @@ classes.addClasses(className: "English")
 print(classes.classes)
 classes.addClasses(className: "Science")
 print(classes.classes)
+
 var number = 1
 for cn in classes.classNames {
     if number <= 12 {
@@ -609,3 +610,57 @@ for cn in classes.classNames {
         print("Sorry, you can't take more than 12 classes")
     }
 }
+
+
+print("------------- Inheritance --------------")
+someVehicle.currentSpeed = 150
+print(someVehicle.description) // traveling at 150.0 miles per hour
+someVehicle.makeNoise()
+bicylce.currentSpeed = 10
+print(bicylce.description)
+bicylce.makeNoise()
+
+
+
+print("------------- Initialization --------------")
+
+breakfastList[0].name = "Orange Juice"
+breakfastList[0].purchased = true
+breakfastList[1].purchased = true
+breakfastList[2].purchased = false
+
+func getList(_ list: [Shopping]) {
+    for item in list {
+        print(item.description)
+    }
+}
+
+getList(breakfastList)
+
+
+print("------------- Optional Chaining --------------")
+
+let john = People()
+john.residence = Residence()
+// let roomCount = john.residence!.numberOfRooms // trigger a runtime error when force unwrapping
+// Fatal error: Unexpectedly found nil while unwrapping an Optional value
+
+if let roomCount = john.residence?.numberOfRooms {
+    print("john has \(roomCount) rooms")
+} else {
+    print("Unable to get rooms")
+}
+// Prints "John's residence has 1 room(s)."
+
+let someAddress = Address()
+someAddress.buildingNumber = 1001
+someAddress.buildingName = "Apple Inc."
+john.residence?.address = someAddress
+
+
+
+print("------------- Handling Errors --------------")
+// throw VendingMachineError.insufficientFunds(coinsNeeded: 4)
+var vendingMachine = VendingMachine()
+// try keyword due to it possibly catching an error.
+try buySnack(person: "Bob", vendingMachine: vendingMachine)

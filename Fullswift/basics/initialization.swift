@@ -125,3 +125,61 @@ let twoByTwo = Size(width: 2.2, height: 2.2);
 let zeroByTwo = Size(height: 4.0);
 
 
+class Motor {
+    var numberOfWheels = 0;
+    var description: String {
+        return "This motor has \(numberOfWheels) wheels"
+    }
+}
+
+class Bicylce: Motor {
+    override init() {
+        super.init()
+        numberOfWheels = 2
+    }
+}
+
+
+let bicycle = Bicylce();
+// bicylce.description = 2 wheels.
+
+class Food {
+    var name: String
+    init(name: String){
+        self.name = name
+    }
+    convenience init() {
+        self.init(name: "unamed food");
+    }
+}
+
+let mysteryMeat = Food(); // mystery meats name is 'unamed Food'
+
+class Recipe: Food {
+    var quantity: Int
+    init(name: String, quantity: Int) {
+        self.quantity = quantity
+        super.init(name: name)
+    }
+    override convenience init(name: String){
+        self.init(name: name, quantity: 1)
+    }
+}
+let sixEggs = Recipe(name: "Eggs", quantity: 6)
+
+class Shopping: Recipe {
+    var purchased = false
+    var description: String {
+        var output = "\(quantity) x \(name)"
+        output += purchased ? " 🛒" : " x"
+        return output
+    }
+}
+
+var breakfastList = [
+    Shopping(),
+    Shopping(name: "Bacon"),
+    Shopping(name: "Eggs", quantity: 6),
+]
+
+
