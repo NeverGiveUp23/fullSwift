@@ -757,3 +757,12 @@ if let foundIndex = findIndexInt(ofString: "dog", in: stringsArray) {
 if let doubleIndex = findGenericIndex(of: "Felix", in: ["Gabe", "Popper", "Felix", "Daisy", "Buster"]) {
     print("The index of Felix is \(doubleIndex)")
 } // The index of Felix is 2
+
+print("-------------- Opaque Types --------------")
+
+print(smallTriangle.draw())
+print(flippedTriangle.draw())
+print(joinedTriangleAndSquare.draw())
+print("-------------- Opaque Trapezoid --------------")
+print(trapezoid.draw())
+print( opaqueJoinedTriangle.draw())
