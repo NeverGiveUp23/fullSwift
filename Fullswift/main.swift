@@ -766,3 +766,10 @@ print(joinedTriangleAndSquare.draw())
 print("-------------- Opaque Trapezoid --------------")
 print(trapezoid.draw())
 print( opaqueJoinedTriangle.draw())
+
+
+
+reference1 = ArcPerson(name: "John Appleseed") // create a new ARCPerson instance and assign it to one of the three variables
+// Prints "John Appleseed is being initialized"
+
+

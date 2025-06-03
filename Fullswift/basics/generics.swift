@@ -4,6 +4,7 @@
 //
 //  Created by Felix Vargas Jr on 5/27/25.
 //
+import Foundation
 
 // Generic code enables you to write flexible, reusable functions and types that can work with any type, subject to requirements that you define. You can write code that avoids duplication and expresses its intent in a clear, abstracted manner.
 
@@ -99,7 +100,7 @@ func findIndexInt(ofString valueTofind: String, in array: [String]) -> Int? {
 
 // this is a generic version
 func findIndex<T>(of valueToFind: T, in array: [T]) -> Int? {
-    for(index, value) in array.enumerated(){
+    for(index, _ ) in array.enumerated(){
         // if value == valueToFind { // return compile time error
             return index
         }
@@ -122,3 +123,20 @@ func findGenericIndex<T: Equatable>(of valueToFind: T, in arr: [T]) -> Int? {
 // the single param for findGenericIndex is written as T: Equatable, which means "any type T conforms to the Equatable protocol".
 
 
+struct Movies: Codable {
+    let title: String
+}
+
+struct User: Codable {
+    let name: String
+}
+
+protocol WebServerProtocol: class {
+    associatedtype Model
+    func getAll(url: URL, completion: (Result<Model>, Error) -> Void)
+}
+
+
+class MovieService: WebServerProtocol {
+    
+}
