@@ -123,20 +123,13 @@ func findGenericIndex<T: Equatable>(of valueToFind: T, in arr: [T]) -> Int? {
 // the single param for findGenericIndex is written as T: Equatable, which means "any type T conforms to the Equatable protocol".
 
 
-struct Movies: Codable {
-    let title: String
+// remeber generics are a form of polymorphism
+
+func identity<A>(_ value: A) -> A {
+    return value
 }
 
-struct User: Codable {
-    let name: String
+func identity2<A: Equatable>(_ value: A) -> A {
+    return value
 }
 
-protocol WebServerProtocol: class {
-    associatedtype Model
-    func getAll(url: URL, completion: (Result<Model>, Error) -> Void)
-}
-
-
-class MovieService: WebServerProtocol {
-    
-}
